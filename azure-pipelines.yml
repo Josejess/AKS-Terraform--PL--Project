@@ -16,9 +16,3 @@ steps:
     command: 'init'
     allowTelemetryCollection: true
 
-- task: TerraformCLI@0
-  displayName: Terraform plan
-  inputs:
-    command: 'plan'
-    environmentServiceName: 'spnAKS'
-    allowTelemetryCollection: true
