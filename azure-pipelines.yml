@@ -3,30 +3,22 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger: none
+trigger:
+- main
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
 - task: TerraformCLI@0
-  displayName: Terraform Init
+  displayName: Terraform init
   inputs:
     command: 'init'
     allowTelemetryCollection: true
 
 - task: TerraformCLI@0
-  displayName: Terraform Plan
+  displayName: Terraform plan
   inputs:
     command: 'plan'
-    environmentServiceName: 'youtube-app-service-connection'
-    allowTelemetryCollection: false
-
-- task: TerraformCLI@0
-  displayName: Terraform Apply
-  inputs:
-    command: 'apply'
-    environmentServiceName: 'youtube-app-service-connection'
+    environmentServiceName: 'spnAKS'
     allowTelemetryCollection: true
-
-
